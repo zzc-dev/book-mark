@@ -1,0 +1,20 @@
+# 1. 虚拟机如何实现多态
+
+​	动态绑定技术(dynamic binding),执行期间判断所引用对象的实际类型,根据实际类型调用对应的方法.如果你知道Hotspot中oop-klass模型的实现,对这个问题就了解比较深了
+
+# 2. a=a+b与a+=b有什么区别吗?
+
+`+=`操作符会进行隐式自动类型转换,此处a+=b隐式的将加操作的结果类型强制转换为持有结果的类型,而a=a+b则不会自动进行类型转换.如：
+
+```java
+byte a = 127;
+byte b = 127;
+b = a + b; // 报编译错误:cannot convert from int to byte
+b += a; 
+```
+
+<strong style="color:red">short、byte进行运算都会自动提升为int类型，而+=会进行隐式自动类型转换</strong>
+
+封装+继承+动态
+
+反射  泛型  枚举  内部类  
